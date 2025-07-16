@@ -1,0 +1,51 @@
+name = "kv-crud-api"
+main = "src/index.js"
+compatibility_date = "2025-07-15"
+compatibility_flags = ["nodejs_compat"]
+
+# 多个KV命名空间配置
+[[kv_namespaces]]
+binding = "USER_DATA"
+id = "your-user-data-kv-id"
+preview_id = "your-user-data-preview-id"
+
+[[kv_namespaces]]
+binding = "PRODUCT_DATA"
+id = "your-product-data-kv-id"
+preview_id = "your-product-data-preview-id"
+
+[[kv_namespaces]]
+binding = "CONFIG_DATA"
+id = "your-config-data-kv-id"
+preview_id = "your-config-data-preview-id"
+
+[[kv_namespaces]]
+binding = "CACHE_DATA"
+id = "your-cache-data-kv-id"
+preview_id = "your-cache-data-preview-id"
+
+[[kv_namespaces]]
+binding = "LOG_DATA"
+id = "your-log-data-kv-id"
+preview_id = "your-log-data-preview-id"
+
+# 环境变量
+[vars]
+API_VERSION = "v1"
+ENVIRONMENT = "production"
+MAX_KEY_LENGTH = "256"
+MAX_VALUE_SIZE = "10485760"  # 10MB
+DEFAULT_TTL = "86400"        # 24小时
+
+# 开发环境
+[env.development]
+vars = { ENVIRONMENT = "development", DEBUG = "true" }
+
+# 生产环境
+[env.production]
+vars = { ENVIRONMENT = "production", DEBUG = "false" }
+
+# 路由配置
+[[routes]]
+pattern = "kv-api.yourdomain.com/*"
+zone_name = "yourdomain.com"

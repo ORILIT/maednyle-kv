@@ -1,0 +1,33 @@
+{
+    "name": "maednyle-kv",
+    "version": "1.0.0",
+    "description": "Cloudflare Workers KV CRUD Operations API",
+    "main": "src/index.js",
+    "scripts": {
+      "dev": "wrangler dev --local --port 8787",
+      "deploy": "wrangler deploy",
+      "deploy:dev": "wrangler deploy --env development",
+      "deploy:prod": "wrangler deploy --env production",
+      "kv:create": "wrangler kv:namespace create",
+      "kv:list": "wrangler kv:key list",
+      "kv:delete": "wrangler kv:key delete",
+      "tail": "wrangler tail",
+      "test": "node test/test.js"
+    },
+    "dependencies": {
+      "@cloudflare/workers-types": "^4.20240129.0"
+    },
+    "devDependencies": {
+      "wrangler": "^3.28.2"
+    },
+    "keywords": [
+      "cloudflare",
+      "workers",
+      "kv",
+      "crud",
+      "api"
+    ],
+    "author": "ORILIT",
+    "license": "MIT"
+  }
+  
